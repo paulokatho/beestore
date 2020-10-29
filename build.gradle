@@ -1,4 +1,4 @@
-plugins {
+	plugins {
 	id 'org.springframework.boot' version '2.3.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
@@ -21,6 +21,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	
+	//A VERSÃO DO SPRING BOOT MUDOU E TEMOS QUE UTILIZAR ESSE CARA AQUI PRA FUNFAR A VALIDAÇÃO
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
@@ -28,6 +32,9 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'io.projectreactor:reactor-test'
+
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	runtime('org.postgresql:postgresql')
 }
 
 test {
