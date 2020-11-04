@@ -9,11 +9,13 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 public class ApiErrorConfig {
 
 	@Bean
-    public MessageSource apiErrorMessageSource() {
+	//apiErrorMessageSource é o nome que vai injetado na classe ApiExceptionHandler
+	public MessageSource apiErrorMessageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("classpath:/api_errors");
         messageSource.setDefaultEncoding("UTF-8");
 
         return messageSource;
     }
+
 }
